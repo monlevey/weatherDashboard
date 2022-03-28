@@ -70,6 +70,7 @@ function getForecast(lat, long){
 async function getWeatherText(url) {
     let weatherObject = await fetch(url);
     let weatherText = await weatherObject.text();
+    console.log(weatherText);
     parseWeather(weatherText);
 }
 
