@@ -1,3 +1,97 @@
-body {
-    background-color: aqua;
-}
+:root {
+    --purple: #79025B;
+    --pink: #D67AB1;
+    --pastelpink: #E7B1D0;
+    --white: #FDF7FA;
+    --paleblue: #A8DCD9;
+    --yellow: #FFBA08;
+    --blue: #3F88C5;
+    --brightpink: #E43F6F;
+    --midpurple: #BE3E82;
+    --midpink: #F56476;
+    --green: #197278;
+  }
+  .container {
+    margin: auto;
+    font-family: sans-serif;
+    line-height: 1.5;
+  }
+  
+  h2 {
+    color: yellow;
+  }
+  .flex-grid {
+    color: white;
+    display: flex;
+    flex-direction: column;
+  }
+  
+  .col {
+    background-color: black;
+    margin-left: 0.5rem;
+    margin-right: 0.5rem;
+    padding: 1rem;
+  }
+  
+  .sidebar {
+    flex: 1;
+  }
+  
+  .main {
+    flex: 3;
+  }
+
+  article {
+    flex-wrap:wrap;
+    display:flex;
+    justify-content: center;
+  }
+
+  /* matching card styles for other projects and content*/
+  div.gallery {
+    margin: 5px;
+    padding: 5%;
+    border: 5px solid var(--brightpink);
+    justify-items: center;
+    text-align: center; 
+    height: auto;
+  }
+
+  div.gallery:hover {
+    border: 5px solid var(--purple);
+  }
+  
+  div.gallery img {
+    width: 100%;
+    height: auto;
+    align-items: center;
+    justify-content: center;
+  }
+
+  /*Designed for mobile in initial build - adjustments for desktops*/
+
+  @media screen and (min-width: 560px) {
+    .flex-grid {
+        color: white;
+        display: flex;
+        flex-direction: row;
+        margin: auto -1rem 1rem;
+      }
+      
+      .col {
+        background-color: black;
+        margin-left: 0.5rem;
+        margin-right: 0.5rem;
+        padding: 1rem;
+      }
+      
+      .sidebar {
+        flex: 1;
+      }
+      
+      .main {
+        flex: 3;
+      }
+    }
+
+  
