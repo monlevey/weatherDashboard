@@ -63,7 +63,7 @@ formSearch.addEventListener('submit', function(event){
 // then call onecallAPI in celcius
 
 function getForecast(lat, long){
-    let url = `http://api.openweathermap.org/data/2.5/onecall?lat=${lat}&lon=${long}&units=metric&appid=${weatherApiKey}`;
+    let url = `https://api.openweathermap.org/data/2.5/onecall?lat=${lat}&lon=${long}&units=metric&appid=${weatherApiKey}`;
     getWeatherText(url);
 }
 
