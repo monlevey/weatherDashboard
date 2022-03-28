@@ -8,10 +8,6 @@ const spantodayHumidity = document.getElementById("span-today-humidity");
 const spantodayUv = document.getElementById("span-today-uv");
 const weatherCards = document.getElementById("weather-cards");
 
-
-
-
-
 const weatherApiKey = "2ae743b4bdb682278613148289f35d91";
 
 let today = new Date();
