@@ -32,15 +32,6 @@ function getCurrentWeatherApi(city){
     
 }
 
-// async function oneCall(lon, lat) {
-
-//     const url = `https://api.openweathermap.org/data/2.5/onecall?lat=${lat}&lon=${lon}&units=metric&appid=${apiKey}`
-
-//        const response = await fetch(url);
-//     return await response.json();
-// }
-
-
 
 // retrieve latitude and longitude
 formSearch.addEventListener('submit', function(event){
