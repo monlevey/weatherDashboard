@@ -18,10 +18,10 @@
 <!-- The search input and list of recent cities searched -->
     <div class="flex-grid search-container">
         <aside class="col sidebar">
-        <form>
+        <form id="form-search">
             <h3>Search for a city...</h3>
             <!-- search input box -->
-        <input type="text" autocomplete="off" class="input-search"
+        <input type="text" autocomplete="off" id="input-city"
         placeholder="Type in a city "/>
         <button class="button-search">Search</button>
         </form>
@@ -34,19 +34,17 @@
 
         <!-- Today's weather data for searched city -->
         <section class="col main">
-            <h2 id="h2-city-today">city
-                <span id="span-date-today"> date </span>
-            </h2>
+            <h2> <span id="h2-city-today"> </span> <span id="span-date-today"> </span></h2>
 
             <section id="section-today">
 
                     <!-- icon indicating weather conditions -->
                     <img src="">
-                    <p id="p-temp-today">Temp</p>
-                    <p id="p-humidity-today">Humidity</p>
-                    <p id="p-wind-today">Wind</p>
+                    <p id="p-today-temp">Temp <span id="span-today-temp"></span> ° Celcius</p>
+                    <p id="p-today-humidity">Humidity <span id="span-today-humidity"></span> %</p>
+                    <p id="p-today-wind">Wind <span id="span-today-wind"></span> km/hr</p>
                     <!-- colour of UV will change with severity -->
-                    <p id="p-uv-today">UV</p>
+                    <p id="p-today-uv">UV <span id="span-today-uv"></span> </p>
 
             </section>
 
@@ -120,7 +118,7 @@
     </div>
 </main>
 
-
+    
     <script src="script.js"></script>
 </body>
 </html>
