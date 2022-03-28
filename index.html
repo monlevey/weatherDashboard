@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css"/>
+
+    
+    <title>Weather App</title>
+</head>
+
+<body>
+    <header>
+            <h1>Weather</h1>
+    </header>
+<!-- The search input and list of recent cities searched -->
+    <div class="search-container">
+        <form>
+            <h3>Search for a city...</h3>
+            <!-- search input box -->
+        <input type="text" autocomplete="off" class="input-search"
+        placeholder="Type in a city "/>
+        <button class="button-search">Search</button>
+        </form>
+
+        <ul id="ul-cities">
+            <!--li  = local storage cities -->
+        </ul>
+    </div>
+
+    <!-- Today's weather data for searched city -->
+    <section id="section-today">
+        <h2 id="h2-city-today">city
+        <span id="span-date-today"> date </span>
+        </h2>
+        <!-- icon indicating weather conditions -->
+        <img src="">
+        <p id="p-temp-today">Temp</p>
+        <p id="p-humidity-today">Humidity</p>
+        <p id="p-wind-today">Wind</p>
+        <!-- colour of UV will change with severity -->
+        <p id="p-uv-today">UV</p>
+    </section>
+
+    <article id="article-forecast">
+        <h2>5 Day Forecast</h2>
+        <div class="card">
+            <!-- create cards for each of the upcoming 5 days -->
+            <!-- list the conditions for each day -->
+            <!-- icon indicating weather conditions -->
+        <img src="">
+        <p id="p-temp-tomorrow">Temp</p>
+        <p id="p-humidity-tomorrow">Humidity</p>
+        <p id="p-wind-tomorrow">Wind</p>
+        <!-- colour of UV will change with severity -->
+        <p id="p-uv-tomorrow">UV</p>
+        </div>
+    </article>
+
+
+    <script src="script.js"></script>
+</body>
+</html>
