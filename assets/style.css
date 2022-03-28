@@ -46,16 +46,18 @@
     display:flex;
     justify-content: center;
   }
+#forecast{
+    display:flex;
+}
 
-  /* matching card styles for other projects and content*/
-  div.gallery {
-    margin: 5px;
+.weatherDay{
     padding: 5%;
     border: 5px solid var(--brightpink);
     justify-items: center;
     text-align: center; 
     height: auto;
-  }
+}
+
 
   div.gallery:hover {
     border: 5px solid var(--purple);

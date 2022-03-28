@@ -36,13 +36,13 @@ function getCurrentWeatherApi(city){
     
 }
 
-async function oneCall(lon, lat) {
+// async function oneCall(lon, lat) {
 
-    const url = `https://api.openweathermap.org/data/2.5/onecall?lat=${lat}&lon=${lon}&units=metric&appid=${apiKey}`
+//     const url = `https://api.openweathermap.org/data/2.5/onecall?lat=${lat}&lon=${lon}&units=metric&appid=${apiKey}`
 
-       const response = await fetch(url);
-    return await response.json();
-}
+//        const response = await fetch(url);
+//     return await response.json();
+// }
 
 
 
@@ -57,23 +57,86 @@ formSearch.addEventListener('submit', function(event){
         spantodayWind.textContent = data.wind.speed;
         spantodayTemp.textContent = data.main.temp;
         spantodayHumidity.textContent = data.main.humidity;
+        const lat = data.coord.lat;
+        const long = data.coord.lon;
+            console.log(lat);
+            console.log(long);
+            getForecast(lat, long);
     });
 });
 // then call onecallAPI in celcius
 
+function getForecast(lat, long){
+    let url = `http://api.openweathermap.org/data/2.5/onecall?lat=${lat}&lon=${long}&units=metric&appid=${weatherApiKey}`;
+    getWeatherText(url);
+}
 
+async function getWeatherText(url) {
+    let weatherObject = await fetch(url);
+    let weatherText = await weatherObject.text();
+    parseWeather(weatherText);
+}
 
+let parseWeather = function(weatherText) {
+    let weatherJSON = JSON.parse(weatherText);
+    let dailyForecast = weatherJSON.daily;
+    console.log(dailyForecast);
+    for (x = 0; x < 5; ++x) {
+        let day = dailyForecast[x];
+        let today = new Date().getDay() + x;
+        if (today > 6) {
+            today = today - 7;
+        }
+        console.log("today is",today);
+        let dayOfWeek = getDayOfWeek(today);
+        let description = day.weather[0].description;
+        let icon = day.weather[0].icon;
+        let sunset = timestampToTime(day.sunset);
+        let highTemp = day.temp.max;
+        let lowTemp = day.temp.min;
+        let humidity = day.humidity;
+        displayWeatherDay(dayOfWeek, description, icon, sunset, highTemp, lowTemp, humidity)
+    }
+}
 
+let displayWeatherDay = function(dayOfWeek, description, icon, sunset, highTemp, lowTemp, humidity){
+    let out = "<div class='weatherDay'><img src='http://openweathermap.org/img/wn/" + icon + "@2x.png'>"
+    out += "<h2>" + dayOfWeek + "</h2>";
+    out += "<h3>" + description + "</h3>";
+    out += "<p>Sunset: " + sunset + "</p>";
+    out += "<p>High Temperature: " + highTemp + "°C</p>";
+    out += "<p>Low Temperature: " + lowTemp + "°C</p>";
+    out += "<p>Humidity: " + humidity + "%</p>";
+    document.getElementById("forecast").innerHTML += out;
+    
+}
 
+let getDayOfWeek = function(dayNum) {
+    var weekday = new Array(7);
+    weekday[0] = "Sunday"
+    weekday[1] = "Monday"
+    weekday[2] = "Tuesday"
+    weekday[3] = "Wednesday"
+    weekday[4] = "Thursday"
+    weekday[5] = "Friday"
+    weekday[6] = "Saturday"
 
-//         const lon = data.coord.lon;
-//         const lat = data.coord.lat;
+    return weekday[dayNum];
 
-//         return getOneCallApi(lon, lat);
-//     })
-//     .then(function(onecallData){
-//         console.log(onecallData);
-//     });
+}
+
+let timestampToTime = function(timeStamp) {
+    let date = new Date(timeStamp * 1000);
+    let hours = date.getHours();
+    let minutes = "";
+    if (date.getMinutes() < 10) {
+        minutes = "0" + date.getMinutes();
+    } else {
+        minutes = date.getMinutes();
+    }
+    return hours +  ";" + minutes;
+}
+
 
 // https://api.openweathermap.org/data/2.5/onecall?lat={lat}&lon={lon}&exclude={part}&appid=2ae743b4bdb682278613148289f35d91
 // data needed - 
