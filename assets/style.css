@@ -46,8 +46,9 @@
     display:flex;
     justify-content: center;
   }
-#forecast{
+#div-forecast{
     display:flex;
+    flex-direction: column;
 }
 
 .weatherDay{
@@ -59,11 +60,11 @@
 }
 
 
-  div.gallery:hover {
+  .div-gallery:hover {
     border: 5px solid var(--purple);
   }
   
-  div.gallery img {
+  .div-gallery img {
     width: 100%;
     height: auto;
     align-items: center;
@@ -94,6 +95,11 @@
       .main {
         flex: 3;
       }
+
+      #div-forecast{
+        display:flex;
+        flex-direction: row;
+    }
     }
 
   

@@ -7,7 +7,8 @@ const spantodayWind = document.getElementById("span-today-wind");
 const spantodayHumidity = document.getElementById("span-today-humidity");
 const spantodayUv = document.getElementById("span-today-uv");
 const weatherCards = document.getElementById("weather-cards");
-
+const divForecast = document.getElementById("div-forecast");
+const buttonClose = document.getElementById('button-close');
 const weatherApiKey = "2ae743b4bdb682278613148289f35d91";
 
 let today = new Date();
@@ -95,7 +96,7 @@ let displayWeatherDay = function(dayOfWeek, description, icon, sunset, highTemp,
     out += "<p>High Temperature: " + highTemp + "°C</p>";
     out += "<p>Low Temperature: " + lowTemp + "°C</p>";
     out += "<p>Humidity: " + humidity + "%</p>";
-    document.getElementById("forecast").innerHTML += out;
+    divForecast.innerHTML += out;
     
 }
 
@@ -148,3 +149,10 @@ let timestampToTime = function(timeStamp) {
 
 // add city searched to local storage
 // display in a list of buttons of previously searched cities
+
+// clear history when pressed
+ buttonClose.addEventListener('click', function(event){
+      // clear the highscore list and refresh the page
+      localStorage.clear();
+      window.location.reload();
+})
